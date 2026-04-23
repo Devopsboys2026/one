@@ -2,117 +2,180 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Mini Amazon Clone</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexusShop Pro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f3f3f3;
+:root{
+    --bg:#0f172a;
+    --card:#1e293b;
+    --primary:#6366f1;
+    --accent:#22c55e;
+    --text:#ffffff;
+    --muted:#94a3b8;
 }
 
-/* Navbar */
-.navbar {
-    background: #131921;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 10px;
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:Poppins;
+    background:var(--bg);
+    color:var(--text);
 }
 
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    margin-right: 20px;
+/* HEADER */
+header{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 40px;
+    background:rgba(15,23,42,0.7);
+    backdrop-filter:blur(10px);
+    position:sticky;
+    top:0;
 }
 
-.search-box {
-    flex: 1;
-    display: flex;
+.logo{
+    font-size:22px;
+    font-weight:700;
 }
 
-.search-box input {
-    width: 100%;
-    padding: 8px;
-    border: none;
+nav a{
+    margin:0 10px;
+    color:var(--text);
+    text-decoration:none;
 }
 
-.search-box button {
-    padding: 8px;
-    background: orange;
-    border: none;
+.search{
+    padding:8px;
+    border-radius:20px;
+    border:none;
 }
 
-/* Products */
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 15px;
-    padding: 20px;
+/* HERO */
+.hero{
+    text-align:center;
+    padding:80px 20px;
 }
 
-.product {
-    background: white;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
+.hero h1{
+    font-size:48px;
+    background:linear-gradient(to right,#6366f1,#22c55e);
+    -webkit-background-clip:text;
+    color:transparent;
 }
 
-.product img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
+.btn{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    background:linear-gradient(135deg,#6366f1,#22c55e);
+    color:white;
+    cursor:pointer;
 }
 
-.product button {
-    background: #ffd814;
-    border: none;
-    padding: 8px;
-    margin-top: 10px;
-    cursor: pointer;
+/* PRODUCTS */
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:40px;
+}
+
+.card{
+    background:var(--card);
+    border-radius:15px;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card-body{
+    padding:15px;
+}
+
+.price{
+    color:var(--accent);
+    font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    color:var(--muted);
 }
 </style>
 </head>
 
 <body>
 
-<!-- Navbar -->
-<div class="navbar">
-    <div class="logo">MiniAmazon</div>
-    <div class="search-box">
-        <input type="text" placeholder="Search products...">
-        <button>Search</button>
-    </div>
+<header>
+    <div class="logo">NexusShop</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Deals</a>
+    </nav>
+    <input class="search" placeholder="Search...">
+</header>
+
+<section class="hero">
+    <h1>Premium Shopping Experience</h1>
+    <p>Modern UI with smooth design</p>
+    <button class="btn">Shop Now</button>
+</section>
+
+<section class="products">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb">
+<div class="card-body">
+<h3>iPhone 14</h3>
+<p class="price">$999</p>
+</div>
 </div>
 
-<!-- Product Section -->
-<div class="container" id="products"></div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45">
+<div class="card-body">
+<h3>MacBook Pro</h3>
+<p class="price">$1999</p>
+</div>
+</div>
 
-<script>
-const products = [
-    {name: "Laptop", price: 50000, img: "https://via.placeholder.com/200"},
-    {name: "Mobile", price: 20000, img: "https://via.placeholder.com/200"},
-    {name: "Headphones", price: 2000, img: "https://via.placeholder.com/200"},
-    {name: "Watch", price: 3000, img: "https://via.placeholder.com/200"}
-];
+<div class="card">
+<img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f">
+<div class="card-body">
+<h3>Sony Camera</h3>
+<p class="price">$2499</p>
+</div>
+</div>
 
-const container = document.getElementById("products");
+<div class="card">
+<img src="https://images.unsplash.com/photo-1542272604-787c3835535d">
+<div class="card-body">
+<h3>Nike Shoes</h3>
+<p class="price">$150</p>
+</div>
+</div>
 
-products.forEach(p => {
-    container.innerHTML += `
-        <div class="product">
-            <img src="${p.img}">
-            <h3>${p.name}</h3>
-            <p>₹${p.price}</p>
-            <button onclick="addToCart('${p.name}')">Add to Cart</button>
-        </div>
-    `;
-});
+</section>
 
-function addToCart(name) {
-    alert(name + " added to cart!");
-}
-</script>
+<footer>
+© 2026 NexusShop | Modern UI
+</footer>
 
 </body>
 </html>
